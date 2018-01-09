@@ -40,6 +40,7 @@ export class InicioComponent implements OnInit {
   btnSrc = this.imgRoot + 'logoToler_3.png';
   triangleSrc = this.imgRoot + 'triangle.png';
 
+  minVueltas = 4;
   ry = 0;
 
   disableBtn = false;
@@ -55,7 +56,7 @@ export class InicioComponent implements OnInit {
   spin() {
     if (!this.disableBtn) {
       this.disableBtn = true;
-      this.ry += Math.floor(Math.random() * (30 + this.elems.length - 30)) + 30;
+      this.ry += Math.floor(Math.random() * this.elems.length) + (this.elems.length * this.minVueltas);
       const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
 
       setTimeout(() => {
