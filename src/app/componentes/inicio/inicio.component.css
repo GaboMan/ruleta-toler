@@ -1,11 +1,19 @@
 .init-container {
     position: relative;
     overflow-y: hidden;
-    /* background-image: url('/assets/img/bg/sf2ce.jpg'); */
     background-repeat: no-repeat;
     background-size: 100% 100%;
     transition: background-image 2s ease;
     height: 100%;
+}
+
+.init-container::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url('/assets/img/bg/sf2ce.jpg') url('/assets/img/bg/mkt.png') url('/assets/img/bg/ki.png') url('/assets/img/bg/kof2002um.png') url('/assets/img/bg/sfv.jpg') url('/assets/img/bg/ssb64.jpg') url('/assets/img/bg/tekken7.jpg') url('/assets/img/bg/usfiv.jpg') url('/assets/img/bg/mvci.jpg') url('/assets/img/bg/ssbpm.png');
 }
 
 .gradient {
