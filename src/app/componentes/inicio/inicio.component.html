@@ -1,0 +1,10 @@
+<!-- <div align="center" class="init-container" [ngStyle]="{ 'background-image': 'url(' + bgElems[bgIndex % bgElems.length] + ')' }"> -->
+<div align="center" class="init-container" [ngStyle]="{ 'background-image': 'url(' + bgPath + ')' }">
+    <div class="gradient">
+        <img [src]="triangleSrc" class="triangle" alt="...">
+        <!-- <div class="init-container" cla="{ 'background-image': bgElems[bgIndex] }"> -->
+        <app-ruleta-container [elems]="elems" [ry]="ry"></app-ruleta-container>
+        <!-- <button (click)="spin()" [disabled]="disableBtn">TEST</button> -->
+        <img [src]="btnSrc" class="main-btn" alt="..." (click)="spin()">
+    </div>
+</div>

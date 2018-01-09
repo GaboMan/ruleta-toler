@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body::after {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    z-index: -1;
+    content: url('assets/img/bg/sf2ce.jpg') url('assets/img/bg/mkt.png') url('assets/img/bg/ki.png') url('assets/img/bg/kof2002um.png') url('assets/img/bg/sfv.jpg') url('assets/img/bg/ssb64.jpg') url('assets/img/bg/tekken7.jpg') url('assets/img/bg/usfiv.jpg') url('assets/img/bg/mvci.jpg') url('assets/img/bg/ssbpm.png');
+}

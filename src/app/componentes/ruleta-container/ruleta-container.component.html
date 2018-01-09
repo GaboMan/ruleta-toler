@@ -1,0 +1,19 @@
+<section class="container" [ngStyle]="{ 'width.px': width, 'height.px': height }">
+  <div 
+    class="carousel"
+    [ngStyle]="{ transform: 'translateZ(-' + tz + 'px) rotateY(-' + ry * factor + 'deg)' }"
+  >
+    <app-ruleta-item 
+      *ngFor="let elem of elems; let i = index" 
+      class="figure" 
+      [ngStyle]="{ 
+        'width.px': width - 24,
+        'height.px': height - 24,
+        'transform': 'rotateY(' + ((i) * factor) + 'deg) translateZ(' + tz + 'px)'
+      }"
+      [elem]="elem" 
+      [rotateY]="(i - 1) * factor"
+      translateZ="288"
+    ></app-ruleta-item>
+  </div>
+</section>
