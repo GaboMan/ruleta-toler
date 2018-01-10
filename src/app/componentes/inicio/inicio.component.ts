@@ -38,7 +38,7 @@ export class InicioComponent implements OnInit {
   bgIndex = this.bgElems.length;
   bgPath = this.elems[0].bgPath;
   btnSrc = this.imgRoot + 'logoToler_3.png';
-  triangleSrc = this.imgRoot + 'triangle_2.png';
+  triangleSrc = this.imgRoot + 'triangle_3.png';
 
   minVueltas = 4;
   ry = 0;
