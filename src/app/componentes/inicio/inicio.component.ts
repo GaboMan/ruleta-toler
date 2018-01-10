@@ -46,7 +46,7 @@ export class InicioComponent implements OnInit {
   unluckyChance;
 
   disableBtn = false;
-  
+
   showJOJO = false;
   kanjiSrc = this.imgRoot + 'jojo_kanji.png';
   linesSrc = this.imgRoot + 'jojo_lines.png';
@@ -70,17 +70,24 @@ export class InicioComponent implements OnInit {
         () => {
           if (this.unluckyChance !== 0) {
             this.showJOJO = true;
-            this.ry += this.unluckyChance;
-            this.trTime = 0.5;
-            // audio.src = this.jojoSnd;
-            setTimeout(() => { this.showJOJO = false; }, 3500);
+            const audioJOJO = new Audio(this.jojoSnd);
+            audioJOJO.play();
+            setTimeout(() => {
+              this.showJOJO = false;
+              this.ry += this.unluckyChance;
+              this.trTime = 0.5;
+              this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;
+              const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
+              audio.play();
+            }, 2100);
+          } else {
+            this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;
+            const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
+            audio.play();
           }
-          let audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
-          audio.play();
           this.disableBtn = false;
-          this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;
         },
-        1000 * (this.trTime + (this.unluckyChance !== 0 ? 0.5 : 0))
+        1000 * (this.trTime)
       );
     }
   }
