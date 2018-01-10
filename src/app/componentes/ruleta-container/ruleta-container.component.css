@@ -10,7 +10,6 @@
   height: 100%;
   position: absolute;
   transform-style: preserve-3d;
-  transition: ease 7s;
 }
 
 .figure {

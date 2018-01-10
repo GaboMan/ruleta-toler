@@ -1,7 +1,7 @@
 <section class="container" [ngStyle]="{ 'width.px': width, 'height.px': height }">
   <div 
     class="carousel"
-    [ngStyle]="{ transform: 'translateZ(-' + tz + 'px) rotateY(-' + ry * factor + 'deg)' }"
+    [ngStyle]="{ transform: 'translateZ(-' + tz + 'px) rotateY(-' + ry * factor + 'deg)', 'transition': 'ease-in-out ' + trTime + 's' }"
   >
     <app-ruleta-item 
       *ngFor="let elem of elems; let i = index" 

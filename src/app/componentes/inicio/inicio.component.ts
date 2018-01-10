@@ -38,10 +38,12 @@ export class InicioComponent implements OnInit {
   bgIndex = this.bgElems.length;
   bgPath = this.elems[0].bgPath;
   btnSrc = this.imgRoot + 'logoToler_3.png';
-  triangleSrc = this.imgRoot + 'triangle.png';
+  triangleSrc = this.imgRoot + 'triangle_2.png';
 
   minVueltas = 4;
   ry = 0;
+  trTime;
+  unluckyChance;
 
   disableBtn = false;
 
@@ -55,16 +57,23 @@ export class InicioComponent implements OnInit {
 
   spin() {
     if (!this.disableBtn) {
+      this.trTime = 7;
       this.disableBtn = true;
       this.ry += Math.floor(Math.random() * this.elems.length) + (this.elems.length * this.minVueltas);
-      const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
-
-      setTimeout(() => {
-        audio.play();
-        this.disableBtn = false;
-        this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;
-      },
-        7000);
+      this.unluckyChance = Math.floor(Math.random() * 5) - 2;
+      setTimeout(
+        () => {
+          if (this.unluckyChance !== 0) {
+            this.ry += this.unluckyChance;
+            this.trTime = 0.5;
+          }
+          const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
+          audio.play();
+          this.disableBtn = false;
+          this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;
+        },
+        1000 * (this.trTime + (this.unluckyChance !== 0 ? 0.5 : 0))
+      );
     }
   }
 

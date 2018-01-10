@@ -9,6 +9,7 @@ export class RuletaContainerComponent implements OnInit {
 
   @Input() elems: Array<any>;
   @Input() ry: number;
+  @Input() trTime: number;
 
   width = 650;
   height = 400;

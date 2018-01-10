@@ -26,7 +26,39 @@
     height: auto;
 }
 
+@keyframes up-down {
+    from {
+        margin-top: 10px;
+    }
+    to {
+        margin-top: 30px;
+    }
+}
+
+@keyframes spin {
+    from {
+        -webkit-transform: rotateY(0deg);
+        transform: rotateY(0deg);
+    }
+    to {
+        -webkit-transform: rotateY(179deg);
+        transform: rotateY(179deg);
+    }
+}
+
 .triangle {
-    width: 80px;
+    height: 50px;
     margin-top: 10px;
+    animation-name: up-down;
+    animation-duration: 1s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+.triangle-container {
+    height: 80px;
+    animation-name: spin;
+    animation-duration: 4s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
 }
