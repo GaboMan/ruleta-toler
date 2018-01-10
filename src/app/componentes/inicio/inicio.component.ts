@@ -46,6 +46,11 @@ export class InicioComponent implements OnInit {
   unluckyChance;
 
   disableBtn = false;
+  
+  showJOJO = false;
+  kanjiSrc = this.imgRoot + 'jojo_kanji.png';
+  linesSrc = this.imgRoot + 'jojo_lines.png';
+  jojoSnd = this.sndRoot + 'nani.mp3';
 
   constructor() { }
 
@@ -60,14 +65,17 @@ export class InicioComponent implements OnInit {
       this.trTime = 7;
       this.disableBtn = true;
       this.ry += Math.floor(Math.random() * this.elems.length) + (this.elems.length * this.minVueltas);
-      this.unluckyChance = Math.floor(Math.random() * 5) - 2;
+      this.unluckyChance = (Math.floor(Math.random() * 10) >= 6) ? Math.floor(Math.random() * 5) - 2 : 0;
       setTimeout(
         () => {
           if (this.unluckyChance !== 0) {
+            this.showJOJO = true;
             this.ry += this.unluckyChance;
             this.trTime = 0.5;
+            // audio.src = this.jojoSnd;
+            setTimeout(() => { this.showJOJO = false; }, 3500);
           }
-          const audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
+          let audio = new Audio(this.elems[(this.ry % this.elems.length)].soundPath);
           audio.play();
           this.disableBtn = false;
           this.bgPath = this.elems[(this.ry % this.elems.length)].bgPath;

@@ -1,3 +1,37 @@
+@keyframes jjeffect {
+    from {
+        margin-left: 3px;
+        margin-top: 0px;
+    }
+    to {
+        margin-left: 0px;
+        margin-top: 10px;
+    }
+}
+
+.kanji, .lines {
+    position: absolute;
+    background-size: 100% 100%;
+}
+
+.kanji {
+    background-image: url('/assets/img/jojo_kanji.png');
+    z-index: 1001;
+    width: 98%;
+    height: 98%;
+    animation-name: jjeffect;
+    animation-duration: 0.05s;
+    animation-direction: alternate-reverse;
+    animation-iteration-count: infinite;
+}
+
+.lines {
+    background-image: url('/assets/img/jojo_lines.png');
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+}
+
 .init-container {
     position: relative;
     overflow-y: hidden;
